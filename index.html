@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en-NZ">
 
 <head>
     <style>
@@ -30,6 +30,12 @@
         
         .content {
             padding: 16px;
+        }
+        
+        .logo-image {
+            width: 16px;
+            height: 16px;
+            overflow: hidden;
         }
         
         .sticky {
@@ -101,49 +107,53 @@
 
         <!-- Left-aligned links (default) -->
         <!--<a href="#o3">Home</a>-->
+        <a class="topnav-img" href="/">
+            <div class="logo-image">
+                <img src="https://user-images.githubusercontent.com/65686816/127785871-ef595e60-5e10-43c4-817d-693b908ab723.png" class="img-fluid" </div>
+        </a>
         <a href="https://dash-dash-dash.github.io/NoxTech/">Home</a>
-        <a href="Games">Games</a>
-        <a href="About">About us</a>
-        <a href="Ideas">Suggestion & Ideas</a>
-        <a href="Support">Support</a>
+        <a href="#Games">Games</a>
+        <a href="#About">About us</a>
+        <a href="#Ideas">Suggestion & Ideas</a>
+        <a href="#Support">Support</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
         <div class="topnav-right">
-            <a href="LogIn">Login</a>
+            <a href="#LogIn">Login</a>
         </div>
-    </div>
-    <!-- This plays the music and loops it when it is finished -->
-    <audio autoplay loop>
+        </div>
+        <!-- This plays the music and loops it when it is finished -->
+        <audio autoplay loop>
         <!-- This is the music file that is used -->
         <source src="https://drive.google.com/uc?export=download&id=1qy82nL26H0bNaGnjk4VJ_zKmUtWqiBhA" type="audio/wav">
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
-    <script>
-        window.onscroll = function() {
-            mymyFunction()
-        };
-        var topnav = document.getElementById("topnav");
-        var sticky = topnav.offsetTop;
+        <script>
+            window.onscroll = function() {
+                mymyFunction()
+            };
+            var topnav = document.getElementById("topnav");
+            var sticky = topnav.offsetTop;
 
-        function mymyFunction() {
-            if (window.pageYOffset >= sticky) {
-                topnav.classList.add("sticky")
-            } else {
-                topnav.classList.remove("sticky");
+            function mymyFunction() {
+                if (window.pageYOffset >= sticky) {
+                    topnav.classList.add("sticky")
+                } else {
+                    topnav.classList.remove("sticky");
+                }
             }
-        }
 
-        function myFunction() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
             }
-        }
-    </script>
+        </script>
 </body>
 
 </html>

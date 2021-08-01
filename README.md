@@ -5,6 +5,6 @@ This website will be developed in html, css, javascript, using visual studio cod
 
 Current development environment:
 CPU structure: x86-64
-OS: Windows 10 home 64-bit / 2004 / 19041
-Browser: Chromium Engine Edge
-Native Language of OS & Browser: Korean
+OS: Windows 10 home 64-bit / 2004 / 19041  &  macOS Catalina version.10.15.7
+Browser: Chromium Engine Edge  &  Apple Safari
+Native Language of OS & Browser: Korean  &  English
