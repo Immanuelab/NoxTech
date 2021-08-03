@@ -9,8 +9,7 @@
         /* Add a black background color to the top navigation */
         
         .topnav {
-            position: fixed;
-            background-color: rgb(95, 95, 95);
+            background-color: rgb(115, 115, 115);
             overflow: hidden;
             top: 0;
             width: 100%;
@@ -20,22 +19,37 @@
         .topnav a {
             float: left;
             display: block;
+            text-align: center;
+        }
+        
+        .topnav-text a {
+            float: left;
+            display: block;
             color: #f2f2f2;
             text-align: center;
-            padding: 14px 16px;
+            padding: 16px 10px;
             text-decoration: none;
-            font-size: 17px;
+            font-size: 18px;
         }
         /* Change the color of links on hover */
         
         .content {
-            padding: 16px;
+            padding: 10px;
         }
         
-        .logo-image {
+        .topnav-image {
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
             width: 16px;
             height: 16px;
+        }
+        
+        .img-fluid {
             overflow: hidden;
+            width: 50%;
+            height: 50%;
         }
         
         .sticky {
@@ -108,52 +122,52 @@
         <!-- Left-aligned links (default) -->
         <!--<a href="#o3">Home</a>-->
         <a class="topnav-img" href="/">
-            <div class="logo-image">
-                <img src="https://user-images.githubusercontent.com/65686816/127785871-ef595e60-5e10-43c4-817d-693b908ab723.png" class="img-fluid" </div>
-        </a>
-        <a href="https://dash-dash-dash.github.io/NoxTech/">Home</a>
-        <a href="#Games">Games</a>
-        <a href="#About">About us</a>
-        <a href="#Ideas">Suggestion & Ideas</a>
-        <a href="#Support">Support</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-        <div class="topnav-right">
-            <a href="#LogIn">Login</a>
-        </div>
-        </div>
-        <!-- This plays the music and loops it when it is finished -->
-        <audio autoplay loop>
+            <img src="https://user-images.githubusercontent.com/65686816/127941552-359103a5-571d-48ae-845e-4a6d459f33d5.png" class="img-fluid" </a>
+            <div class="topnav-text">
+                <a href="https://dash-dash-dash.github.io/NoxTech/">Home</a>
+                <a href="#Games">Games</a>
+                <a href="#About">About us</a>
+                <a href="#Ideas">Suggestion & Ideas</a>
+                <a href="#Support">Support</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="topnav-right">
+                    <a href="#LogIn">Login</a>
+                </div>
+            </div>
+    </div>
+    <!-- This plays the music and loops it when it is finished -->
+    <audio autoplay loop>
         <!-- This is the music file that is used -->
         <source src="https://drive.google.com/uc?export=download&id=1qy82nL26H0bNaGnjk4VJ_zKmUtWqiBhA" type="audio/wav">
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
-        <script>
-            window.onscroll = function() {
-                mymyFunction()
-            };
-            var topnav = document.getElementById("topnav");
-            var sticky = topnav.offsetTop;
+    <script>
+        window.onscroll = function() {
+            mymyFunction()
+        };
+        var topnav = document.getElementById("topnav");
+        var sticky = topnav.offsetTop;
 
-            function mymyFunction() {
-                if (window.pageYOffset >= sticky) {
-                    topnav.classList.add("sticky")
-                } else {
-                    topnav.classList.remove("sticky");
-                }
+        function mymyFunction() {
+            if (window.pageYOffset >= sticky) {
+                topnav.classList.add("sticky")
+            } else {
+                topnav.classList.remove("sticky");
             }
+        }
 
-            function myFunction() {
-                var x = document.getElementById("myTopnav");
-                if (x.className === "topnav") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "topnav";
-                }
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
             }
-        </script>
+        }
+    </script>
 </body>
 
 </html>
