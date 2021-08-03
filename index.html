@@ -1,7 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-NZ">
 
 <head>
+    <meta charset=UTF-8>
+
     <style>
         body {
             background-color: rgb(255, 255, 255)
@@ -38,6 +40,8 @@
         }
         
         .topnav-image {
+            float: left;
+            display: block;
             padding-left: 0px;
             padding-right: 0px;
             padding-top: 0px;
@@ -108,39 +112,38 @@
             }
         }
     </style>
-    <meta charset="utf-10">
     <title>NoxTech</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
 
 </head>
 
 <body>
 
     <!-- Top navigation -->
-    <div class="topnav" id="myTopnav">
+    <div class="topnav " id="myTopnav ">
 
         <!-- Left-aligned links (default) -->
-        <!--<a href="#o3">Home</a>-->
-        <a class="topnav-img" href="https://dash-dash-dash.github.io/NoxTech/">
-            <img alt="NoxTech" src="https://user-images.githubusercontent.com/65686816/127941552-359103a5-571d-48ae-845e-4a6d459f33d5.png" class="img-fluid" </a>
-            <div class="topnav-text">
-                <a href="#Games">Games</a>
-                <a href="#About">About us</a>
-                <a href="#Ideas">Suggestion & Ideas</a>
-                <a href="#Support">Support</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="topnav-right">
-                    <a href="#LogIn">Login</a>
-                </div>
+        <!--<a href="#o3 ">Home</a>-->
+        <a class="topnav-img " href="https://dash-dash-dash.github.io/NoxTech/ ">
+            <img alt="NoxTech " src="https://user-images.githubusercontent.com/65686816/127941552-359103a5-571d-48ae-845e-4a6d459f33d5.png " class="img-fluid ">
+        </a>
+        <div class="topnav-text "><a href="file:///D:/Github/NoxTech/index.html#Games ">Games</a>
+            <a href="#About ">About us</a>
+            <a href="#Ideas ">Suggestion &amp; Ideas</a>
+            <a href="#Support ">Support</a>
+            <a href="javascript:void(0); " class="icon " onclick="myFunction() ">
+                <i class="fa fa-bars "></i>
+            </a>
+            <div class="topnav-right ">
+                <a href="#LogIn ">Login</a>
             </div>
+        </div>
     </div>
     <!-- This plays the music and loops it when it is finished -->
-    <audio autoplay loop>
+    <audio autoplay=" " loop=" ">
         <!-- This is the music file that is used -->
-        <source src="https://drive.google.com/uc?export=download&id=1qy82nL26H0bNaGnjk4VJ_zKmUtWqiBhA" type="audio/wav">
+        <source src="https://drive.google.com/uc?export=download&amp;id=1qy82nL26H0bNaGnjk4VJ_zKmUtWqiBhA " type="audio/wav ">
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
@@ -148,28 +151,29 @@
         window.onscroll = function() {
             mymyFunction()
         };
-        var topnav = document.getElementById("topnav");
-        var sticky = topnav.offsetTop;
+        var topnav = document.getElementById("topnav ");
 
         function mymyFunction() {
             if (window.pageYOffset >= sticky) {
-                topnav.classList.add("sticky")
+                topnav.classList.add("sticky ")
             } else {
-                topnav.classList.remove("sticky");
+                topnav.classList.remove("sticky ");
             }
         }
 
         function myFunction() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
+            var x = document.getElementById("myTopnav ");
+            if (x.className === "topnav ") {
+                x.className += " responsive ";
             } else {
-                x.className = "topnav";
+                x.className = "topnav ";
             }
         }
     </script>
-</body>
 
-</html>
+
+
+
+</body>
 
 </html>
