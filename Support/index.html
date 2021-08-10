@@ -34,7 +34,7 @@
         }
         
         body {
-            background-color: rgb(255, 255, 255)
+            background-color: rgb(247, 195, 118)
         }
         /* Add a black background color to the top navigation */
         
@@ -146,6 +146,48 @@
         .devimg1 {
             float: right;
         }
+        /* Style the search box */
+        
+        #supsearch {
+            width: 100%;
+            font-size: 18px;
+            padding: 11px;
+            border: 1px solid #ddd;
+        }
+        /* Style the navigation menu */
+        
+        #supdocs {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        /* Style the navigation links */
+        
+        #supdocs li a {
+            padding: 12px;
+            text-decoration: none;
+            color: black;
+            display: block;
+            text-align: center;
+        }
+        
+        #supdocs li a:hover {
+            background-color: rgb(93, 231, 220);
+        }
+        
+        .search-tab {
+            text-align: center;
+            background-color: rgb(247, 195, 118);
+        }
+        
+        .search-bar {
+            margin-right: auto;
+            margin-left: auto;
+            height: 40px;
+            width: 400px;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
     </style>
     <title>NoxTech</title>
 
@@ -167,7 +209,7 @@
             <a href="https://dash-dash-dash.github.io/NoxTech/About/">About us</a>
             <a href="https://dash-dash-dash.github.io/NoxTech/S&I/">Suggestion & Ideas</a>
             <a href="https://dash-dash-dash.github.io/NoxTech/Support/">Support</a>
-            <a href="javascript:void(0); " class="icon " onclick="myFunction() ">
+            <a href="javascript:void(0); " class="icon " onclick="resnav() ">
                 <i class="fa fa-bars "></i>
             </a>
             <div class="topnav-right ">
@@ -175,8 +217,25 @@
             </div>
         </div>
     </div>
+    <div class="search-tab">
+        <h1>Support</h1>
+        <div class="search-bar">
+            <input type="text" id="supsearch" onkeyup="searchfunc()" placeholder="Search documents.." title="Type in a category" style="background-color: rgb(255, 223, 175);">
+        </div>
 
-    <h1>Support tab</h1>
+        <ul id="supdocs">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+        </ul>
+        <a href="#">Can't find what you want to know?</a>
+    </div>
     <!-- This plays the music and loops it when it is finished -->
     <audio autoplay=" " loop=" ">
         <!-- This is the music file that is used -->
@@ -186,11 +245,11 @@
     </audio>
     <script>
         window.onscroll = function() {
-            mymyFunction()
+            stickyfunc()
         };
         var topnav = document.getElementById("topnav ");
 
-        function mymyFunction() {
+        function stickyfunc() {
             if (window.pageYOffset >= sticky) {
                 topnav.classList.add("sticky ")
             } else {
@@ -198,12 +257,31 @@
             }
         }
 
-        function myFunction() {
+        function resnav() {
             var x = document.getElementById("myTopnav ");
             if (x.className === "topnav ") {
                 x.className += " responsive ";
             } else {
                 x.className = "topnav ";
+            }
+        }
+
+        function searchfunc() {
+            // Declare variables
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("supsearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("supdocs");
+            li = ul.getElementsByTagName("li");
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
             }
         }
     </script>
