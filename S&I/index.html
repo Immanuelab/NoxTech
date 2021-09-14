@@ -154,6 +154,7 @@
         
         .input {
             size: 50px;
+            text-align: center;
         }
     </style>
     <title>NoxTech</title>
@@ -187,7 +188,10 @@
 
     <h1 class="textsai">Suggestion & Ideas tab</h1>
     <h2 class="textsai"></h2>
-    <input class="input"><br></br>
+    <input class="input" name="name" placeholder="Enter your name"><br></br>
+    <input class="input" name="email" placeholder="Enter your email address">
+    <textarea class="input" name="message" placeholder="Enter the suggestion you want to make"></textarea>
+    <input class="input" type="submit" name="submission" value="Send">
     <!-- This plays the music and loops it when it is finished -->
     <audio autoplay=" " loop=" ">
         <!-- This is the music file that is used -->
@@ -195,6 +199,33 @@
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            emailjs.init("user_fA7IvdQJ9tR9lVluzcYe2");
+            $('input[name=submission]').click(function() {
+
+                var Detail = {
+                    name: $('input[name=name]').val(),
+                    email: $('input[name=email]').val(),
+                    message: $('textarea[name=message]').val()
+                };
+
+
+                emailjs.send('service_1iipw2k', 'template_9bj3gr9', Detail)
+                    //emailjs.send('service ID', 'template ID', 보낼 내용이 담긴 객체)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+
+
+
+            });
+
+        });
+    </script>
     <script>
         window.onscroll = function() {
             mymyFunction()
