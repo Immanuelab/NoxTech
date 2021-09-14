@@ -155,6 +155,38 @@
         .input {
             size: 50px;
             text-align: center;
+            margin-right: auto;
+            margin-left: auto;
+            width: 800px;
+            height: 100px;
+        }
+        
+        .suggestion_blocks {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        
+        .bigbutton {
+            size: 50px;
+            text-align: center;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        .user_detail {
+            size: 50px;
+            text-align: center;
+            margin-right: auto;
+            margin-left: auto;
+            width: 300px;
+        }
+        
+        .select_menu {
+            width: 200px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
     <title>NoxTech</title>
@@ -185,13 +217,28 @@
             </div>
         </div>
     </div>
+    <div class="suggestion_blocks">
+        <h1 class="textsai">Suggestion & Ideas tab</h1>
+        <h2 class="textsai"></h2>
+        <div class="select_menu">
+            <select name="topic">
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
+              <option value="Option 3">Option 3</option>
+            </select>
+        </div>
+        <br>
+        <input class="user_detail" name="name" placeholder="Enter your name">
+        <br>
+        <br>
+        <input class="user_detail" name="email" placeholder="Enter your email address">
+        <br>
+        <br>
+        <textarea class="input" name="message" placeholder="Enter the suggestion you want to make"></textarea>
+        <br>
+        <input class="bigbutton" type="submit" name="submission" value="Send">
+    </div>
 
-    <h1 class="textsai">Suggestion & Ideas tab</h1>
-    <h2 class="textsai"></h2>
-    <input class="input" name="name" placeholder="Enter your name"><br></br>
-    <input class="input" name="email" placeholder="Enter your email address">
-    <textarea class="input" name="message" placeholder="Enter the suggestion you want to make"></textarea>
-    <input class="input" type="submit" name="submission" value="Send">
     <!-- This plays the music and loops it when it is finished -->
     <audio autoplay=" " loop=" ">
         <!-- This is the music file that is used -->
@@ -208,12 +255,13 @@
                 var Detail = {
                     name: $('input[name=name]').val(),
                     email: $('input[name=email]').val(),
-                    message: $('textarea[name=message]').val()
+                    message: $('textarea[name=message]').val(),
+                    topic: $(select.options[select.selectedIndex].value())
                 };
 
 
                 emailjs.send('service_1iipw2k', 'template_9bj3gr9', Detail)
-                    //emailjs.send('service ID', 'template ID', 보낼 내용이 담긴 객체)
+                    //emailjs.send('service ID', 'template ID', Template parameter)
                     .then(function(response) {
                         console.log('SUCCESS!', response.status, response.text);
                     }, function(error) {
