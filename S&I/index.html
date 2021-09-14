@@ -246,8 +246,7 @@
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
         $(document).ready(function() {
             emailjs.init("user_fA7IvdQJ9tR9lVluzcYe2");
             $('input[name=submission]').click(function() {
@@ -259,12 +258,12 @@
                 };
 
 
-                emailjs.send('service_1iipw2k', 'template_9bj3gr9', Detail)
+                emailjs.send('service_1iipw2k', 'template_9bj3gr9', Detail, 'user_fA7IvdQJ9tR9lVluzcYe2')
                     //emailjs.send('service ID', 'template ID', Template parameter)
                     .then(function(response) {
-                        console.log('SUCCESS!', response.status, response.text);
+                        alert('SUCCESS!', response.status, response.text);
                     }, function(error) {
-                        console.log('FAILED...', error);
+                        alert('FAILED...', error);
                     });
 
 
@@ -272,8 +271,6 @@
             });
 
         });
-    </script>
-    <script>
         window.onscroll = function() {
             mymyFunction()
         };
