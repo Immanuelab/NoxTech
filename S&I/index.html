@@ -193,6 +193,53 @@
 
     <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("user_fA7IvdQJ9tR9lVluzcYe2");
+        })();
+    </script>
+    <!-- <script type="text/javascript">
+        function sendfunction() {
+            var Detail = {
+                name: 'sdasd',
+                email: 'immanuel0303@outlook.com',
+                message: 'test'
+                    //name: $('input[name=name]').val(),
+                    //email: $('input[name=email]').val(),
+                    //message: $('textarea[name=message]').val(),
+            };
+
+
+            emailjs.send('service_1iipw2k', 'template_9bj3gr9', Detail)
+                //emailjs.send('service ID', 'template ID', Template parameter)
+                .then(function(response) {
+                    alert('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    alert('FAILED...', error);
+                });
+
+
+        }
+    </script> -->
+    <!--
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // 서비스 id, 이메일 템플릿 
+                emailjs.send('service_1iipw2k', 'template_9bj3gr9', this)
+                    //emailjs.send('service ID', 'template ID', Template parameter)
+                    .then(function(response) {
+                        alert('SUCCESS!', response.status, response.text);
+                    }, function(error) {
+                        alert('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+-->
 </head>
 
 <body>
@@ -221,22 +268,39 @@
         <h1 class="textsai">Suggestion & Ideas tab</h1>
         <h2 class="textsai"></h2>
         <div class="select_menu">
-            <select name="topic">
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-              <option value="Option 3">Option 3</option>
+            <form>
+                Select game:
+                <select id="topic">
+              <option value="French Dungeon 2">French Dungeon 2</option>
+              <option value="The Magecal">The Magecal</option>
+              <option value="New Ideas">Ideas for new games</option>
             </select>
+            </form>
         </div>
         <br>
-        <input class="user_detail" name="name" placeholder="Enter your name">
+        <!-- <form id="contact-form">
+            <input type="hidden" name="contact_number">
+
+            <label>Name</label>
+            <input type="text" name="name">
+
+            <label>Email</label>
+            <input type="text" name="email">
+
+            <label>Message</label>
+            <textarea name="message"></textarea>
+            <input type="submit" value="Send"> </form>
+        -->
+
+        <input class="user_detail" id="name" placeholder="Enter your name">
         <br>
         <br>
-        <input class="user_detail" name="email" placeholder="Enter your email address">
+        <input class="user_detail" id="email" placeholder="Enter your email address">
         <br>
         <br>
-        <textarea class="input" name="message" placeholder="Enter the suggestion you want to make"></textarea>
+        <textarea class="input" id="message" placeholder="Enter the suggestion you want to make"></textarea>
         <br>
-        <input class="bigbutton" type="button" name="submission" value="Send">
+        <button class="bigbutton" onclick="sendfunction()">Send</button>
     </div>
 
     <!-- This plays the music and loops it when it is finished -->
@@ -246,31 +310,39 @@
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
-        $(document).ready(function() {
-            emailjs.init("user_fA7IvdQJ9tR9lVluzcYe2");
-            $('input[name=submission]').click(function() {
-
-                var Detail = {
-                    name: $('input[name=name]').val(),
-                    email: $('input[name=email]').val(),
-                    message: $('textarea[name=message]').val(),
-                };
-
-
-                emailjs.send('service_1iipw2k', 'template_9bj3gr9', Detail, 'user_fA7IvdQJ9tR9lVluzcYe2')
-                    //emailjs.send('service ID', 'template ID', Template parameter)
-                    .then(function(response) {
-                        alert('SUCCESS!', response.status, response.text);
-                    }, function(error) {
-                        alert('FAILED...', error);
-                    });
 
 
 
-            });
 
-        });
+    <script type="text/javascript">
+        function sendfunction() {
+            var nameid = document.getElementById("name").value;
+            var emailid = document.getElementById("email").value;
+            var messageid = document.getElementById("message").value;
+            var topicid = document.getElementById("topic").value;
+            var refcode = "a" + Math.floor(Math.random() * 1000001);
+            var Detail = {
+                topic: topicid,
+                name: nameid,
+                email: emailid,
+                message: messageid,
+                refcode: refcode
+                    //name: $('input[name=name]').val(),
+                    //email: $('input[name=email]').val(),
+                    //message: $('textarea[name=message]').val(),
+            };
+
+
+            emailjs.send('service_1iipw2k', 'template_9bj3gr9', Detail)
+                //emailjs.send('service ID', 'template ID', Template parameter)
+                .then(function(response) {
+                    alert('Thank you for your suggestion! \nExtra Detail will be on your email!', response.status, response.text);
+                }, function(error) {
+                    alert('Failed to send suggestion... \nCheck wether you have filled all details correctly.', error);
+                });
+
+
+        }
         window.onscroll = function() {
             mymyFunction()
         };
@@ -293,10 +365,6 @@
             }
         }
     </script>
-
-
-
-
 </body>
 
 </html>
