@@ -256,6 +256,7 @@
             <a href="https://dash-dash-dash.github.io/NoxTech/About/">About us</a>
             <a href="https://dash-dash-dash.github.io/NoxTech/S&I/">Suggestion & Ideas</a>
             <a href="https://dash-dash-dash.github.io/NoxTech/Support/">Support</a>
+            <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact</a>
             <a href="javascript:void(0); " class="icon " onclick="myFunction() ">
                 <i class="fa fa-bars "></i>
             </a>
@@ -274,6 +275,7 @@
               <option value="French Dungeon 2">French Dungeon 2</option>
               <option value="The Magecal">The Magecal</option>
               <option value="New Ideas">Ideas for new games</option>
+              <option value="Website">Ideas for website</option>
             </select>
             </form>
         </div>
@@ -316,11 +318,23 @@
 
     <script type="text/javascript">
         function sendfunction() {
+            switch (document.getElementById("topic").value) {
+                case "French Dungeon 2":
+                    code = "A";
+                case "The Magecal":
+                    code = "B";
+                case "New Ideas":
+                    code = "C"
+                case "Website":
+                    code = "D";
+            }
+            var num1 = Math.floor(Math.random() * 10001);
+            var num2 = Math.floor(Math.random() * 1000001);
             var nameid = document.getElementById("name").value;
             var emailid = document.getElementById("email").value;
             var messageid = document.getElementById("message").value;
             var topicid = document.getElementById("topic").value;
-            var refcode = "a" + Math.floor(Math.random() * 1000001);
+            var refcode = code + num1 + "S" + num2;
             var Detail = {
                 topic: topicid,
                 name: nameid,

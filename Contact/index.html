@@ -29,7 +29,7 @@
             border-width: 1px;
         }
         
-        .textho {
+        .textsai {
             margin-left: 5px;
             margin-right: 5px;
         }
@@ -151,11 +151,95 @@
         .devimg1 {
             float: right;
         }
+        
+        .input {
+            size: 50px;
+            text-align: center;
+            margin-right: auto;
+            margin-left: auto;
+            width: 800px;
+            height: 100px;
+        }
+        
+        .suggestion_blocks {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        
+        .bigbutton {
+            size: 50px;
+            text-align: center;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        .user_detail {
+            size: 50px;
+            text-align: center;
+            margin-right: auto;
+            margin-left: auto;
+            width: 300px;
+        }
+        
+        .select_menu {
+            width: 200px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
     <title>NoxTech</title>
 
     <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("user_fA7IvdQJ9tR9lVluzcYe2");
+        })();
+    </script>
+    <!-- <script type="text/javascript">
+        function sendfunction() {
+            var Detail = {
+                name: 'sdasd',
+                email: 'immanuel0303@outlook.com',
+                message: 'test'
+                    //name: $('input[name=name]').val(),
+                    //email: $('input[name=email]').val(),
+                    //message: $('textarea[name=message]').val(),
+            };
+
+
+            emailjs.send('service_1iipw2k', 'template_9bj3gr9', Detail)
+                //emailjs.send('service ID', 'template ID', Template parameter)
+                .then(function(response) {
+                    alert('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    alert('FAILED...', error);
+                });
+
+
+        }
+    </script> -->
+    <!--
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // 서비스 id, 이메일 템플릿 
+                emailjs.send('service_1iipw2k', 'template_9bj3gr9', this)
+                    //emailjs.send('service ID', 'template ID', Template parameter)
+                    .then(function(response) {
+                        alert('SUCCESS!', response.status, response.text);
+                    }, function(error) {
+                        alert('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+-->
 </head>
 
 <body>
@@ -181,24 +265,45 @@
             </div>
         </div>
     </div>
-    <h2 class="textho">Game#1</h2>
-    <p class="textho">Content Content Content Content
-        <span class="devimg1">
-    <img src="http://tinyurl.com/qzxz95c" />
-    </span>
-    </p>
+    <div class="suggestion_blocks">
+        <h1 class="textsai">Suggestion & Ideas tab</h1>
+        <h2 class="textsai"></h2>
+        <div class="select_menu">
+            <form>
+                Select topic:
+                <select id="topic">
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
+              <option value="Option 3">Option 3</option>
+            </select>
+            </form>
+        </div>
+        <br>
+        <!-- <form id="contact-form">
+            <input type="hidden" name="contact_number">
 
-    <!-- It puts horizontal line in between. fl means first line -->
-    <hr class="fl">
+            <label>Name</label>
+            <input type="text" name="name">
 
-    <h2 class="textho">Developing Process of Game #1</h2>
-    <p class="textho">Another Content</p>
+            <label>Email</label>
+            <input type="text" name="email">
 
-    <!-- It puts horizontal line in between. ll means last line -->
-    <hr class="ll">
+            <label>Message</label>
+            <textarea name="message"></textarea>
+            <input type="submit" value="Send"> </form>
+        -->
 
-    <!-- This part is for contact info of the company. ci means contact info-->
-    <p class="ci">Contact info</p>
+        <input class="user_detail" id="name" placeholder="Enter your name">
+        <br>
+        <br>
+        <input class="user_detail" id="email" placeholder="Enter your email address">
+        <br>
+        <br>
+        <textarea class="input" id="message" placeholder="Enter the detail"></textarea>
+        <br>
+        <button class="bigbutton" onclick="sendfunction()">Send</button>
+    </div>
+
     <!-- This plays the music and loops it when it is finished -->
     <audio autoplay=" " loop=" ">
         <!-- This is the music file that is used -->
@@ -206,7 +311,49 @@
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
-    <script>
+
+
+
+
+    <script type="text/javascript">
+        function sendfunction() {
+            switch (document.getElementById("topic").value) {
+                case "Option 1":
+                    code = "E";
+                case "Option 2":
+                    code = "F";
+                case "Option 3":
+                    code = "G"
+            }
+            var num1 = Math.floor(Math.random() * 10001);
+            var num2 = Math.floor(Math.random() * 1000001);
+            var nameid = document.getElementById("name").value;
+            var emailid = document.getElementById("email").value;
+            var messageid = document.getElementById("message").value;
+            var topicid = document.getElementById("topic").value;
+            var refcode = code + num1 + "C" + num2;
+            var Detail = {
+                topic: topicid,
+                name: nameid,
+                email: emailid,
+                message: messageid,
+                refcode: refcode
+                    //name: $('input[name=name]').val(),
+                    //email: $('input[name=email]').val(),
+                    //message: $('textarea[name=message]').val(),
+            };
+
+
+            emailjs.send('service_1iipw2k', 'template_usfxwv4', Detail)
+                //emailjs.send('service ID', 'template ID', Template parameter)
+                .then(function(response) {
+                    alert('Your inquiry has been sent to us. \nExtra Detail will be on your email.', response.status, response.text);
+                }, function(error) {
+                    alert('Failed to send suggestion... \nCheck wether you have filled all details correctly.', error);
+                });
+
+
+        }
         window.onscroll = function() {
             mymyFunction()
         };
@@ -229,10 +376,6 @@
             }
         }
     </script>
-
-
-
-
 </body>
 
 </html>
