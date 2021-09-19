@@ -199,6 +199,13 @@
             emailjs.init("user_fA7IvdQJ9tR9lVluzcYe2");
         })();
     </script>
+    <script type="application/javascript">
+        function getIP(json) {
+            document.write("My public IP address is: ", json.ip);
+        }
+    </script>
+
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
     <!-- <script type="text/javascript">
         function sendfunction() {
             var Detail = {
@@ -299,6 +306,9 @@
         <input class="user_detail" id="email" placeholder="Enter your email address">
         <br>
         <br>
+        <input class="user_detail" id="contact_number" placeholder="Enter your phone number">
+        <br>
+        <br>
         <textarea class="input" id="message" placeholder="Enter the detail"></textarea>
         <br>
         <button class="bigbutton" onclick="sendfunction()">Send</button>
@@ -331,13 +341,30 @@
             var emailid = document.getElementById("email").value;
             var messageid = document.getElementById("message").value;
             var topicid = document.getElementById("topic").value;
+            var cont_num = document.getElementById("contact_number").value;
             var refcode = code + num1 + "C" + num2;
+            var lang = navigator.language;
+            var http = require('http');
+
+            http.get({
+                'host': 'api.ipify.org',
+                'port': 80,
+                'path': '/'
+            }, function(resp) {
+                resp.on('data', function(ip) {
+                    console.log("My public IP address is: " + ip);
+                    var ipa = ip;
+                });
+            });
             var Detail = {
                 topic: topicid,
                 name: nameid,
                 email: emailid,
+                contnum: cont_num,
                 message: messageid,
-                refcode: refcode
+                refcode: refcode,
+                ipa: ipa,
+                lang: lang
                     //name: $('input[name=name]').val(),
                     //email: $('input[name=email]').val(),
                     //message: $('textarea[name=message]').val(),

@@ -335,12 +335,14 @@
             var messageid = document.getElementById("message").value;
             var topicid = document.getElementById("topic").value;
             var refcode = code + num1 + "S" + num2;
+            var lang = navigator.language;
             var Detail = {
                 topic: topicid,
                 name: nameid,
                 email: emailid,
                 message: messageid,
-                refcode: refcode
+                refcode: refcode,
+                lang: lang
                     //name: $('input[name=name]').val(),
                     //email: $('input[name=email]').val(),
                     //message: $('textarea[name=message]').val(),
