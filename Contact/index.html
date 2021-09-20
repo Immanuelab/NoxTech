@@ -200,8 +200,10 @@
         })();
     </script>
     <script type="application/javascript">
-        function getIP(json) {
-            document.write("My public IP address is: ", json.ip);
+        let ipaddress = "default"
+
+        function getIP(data) {
+            ipaddress = data.ip;
         }
     </script>
 
@@ -263,7 +265,7 @@
             <a href="https://dash-dash-dash.github.io/NoxTech/About/">About us</a>
             <a href="https://dash-dash-dash.github.io/NoxTech/S&I/">Suggestion & Ideas</a>
             <a href="https://dash-dash-dash.github.io/NoxTech/Support/">Support</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact</a>
+            <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact Us</a>
             <a href="javascript:void(0); " class="icon " onclick="myFunction() ">
                 <i class="fa fa-bars "></i>
             </a>
@@ -273,7 +275,7 @@
         </div>
     </div>
     <div class="suggestion_blocks">
-        <h1 class="textsai">Suggestion & Ideas tab</h1>
+        <h1 class="textsai">Contact Us</h1>
         <h2 class="textsai"></h2>
         <div class="select_menu">
             <form>
@@ -327,44 +329,34 @@
 
     <script type="text/javascript">
         function sendfunction() {
-            switch (document.getElementById("topic").value) {
-                case "Option 1":
-                    code = "E";
-                case "Option 2":
-                    code = "F";
-                case "Option 3":
-                    code = "G"
+            alert("Sending... \nClick ok to continue")
+            let code = "Z";
+            const topic_selection = document.getElementById("topic").value;
+            if (topic_selection == "Option 1") {
+                code = "F"
+            } else if (topic_selection == "Option 2") {
+                code = "G"
+            } else if (topic_selection == "Option 3") {
+                code = "H"
             }
-            var num1 = Math.floor(Math.random() * 10001);
-            var num2 = Math.floor(Math.random() * 1000001);
-            var nameid = document.getElementById("name").value;
-            var emailid = document.getElementById("email").value;
-            var messageid = document.getElementById("message").value;
-            var topicid = document.getElementById("topic").value;
-            var cont_num = document.getElementById("contact_number").value;
-            var refcode = code + num1 + "C" + num2;
-            var lang = navigator.language;
-            var http = require('http');
-
-            http.get({
-                'host': 'api.ipify.org',
-                'port': 80,
-                'path': '/'
-            }, function(resp) {
-                resp.on('data', function(ip) {
-                    console.log("My public IP address is: " + ip);
-                    var ipa = ip;
-                });
-            });
-            var Detail = {
+            const num1 = Math.floor(Math.random() * 10001);
+            const num2 = Math.floor(Math.random() * 1000001);
+            const nameid = document.getElementById("name").value;
+            const emailid = document.getElementById("email").value;
+            const messageid = document.getElementById("message").value;
+            const topicid = document.getElementById("topic").value;
+            const cont_num = document.getElementById("contact_number").value;
+            const refcode1 = code + num1 + "C" + num2;
+            const language = navigator.language;
+            const Detail = {
                 topic: topicid,
                 name: nameid,
                 email: emailid,
                 contnum: cont_num,
                 message: messageid,
-                refcode: refcode,
-                ipa: ipa,
-                lang: lang
+                refcode: refcode1,
+                ipa: ipaddress,
+                lang: language
                     //name: $('input[name=name]').val(),
                     //email: $('input[name=email]').val(),
                     //message: $('textarea[name=message]').val(),

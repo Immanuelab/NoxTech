@@ -199,6 +199,15 @@
             emailjs.init("user_fA7IvdQJ9tR9lVluzcYe2");
         })();
     </script>
+    <script type="application/javascript">
+        let ipaddress = "default"
+
+        function getIP(data) {
+            ipaddress = data.ip;
+        }
+    </script>
+
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
     <!-- <script type="text/javascript">
         function sendfunction() {
             var Detail = {
@@ -256,7 +265,7 @@
             <a href="https://dash-dash-dash.github.io/NoxTech/About/">About us</a>
             <a href="https://dash-dash-dash.github.io/NoxTech/S&I/">Suggestion & Ideas</a>
             <a href="https://dash-dash-dash.github.io/NoxTech/Support/">Support</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact</a>
+            <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact Us</a>
             <a href="javascript:void(0); " class="icon " onclick="myFunction() ">
                 <i class="fa fa-bars "></i>
             </a>
@@ -266,14 +275,15 @@
         </div>
     </div>
     <div class="suggestion_blocks">
-        <h1 class="textsai">Suggestion & Ideas tab</h1>
+        <h1 class="textsai">Suggestion & Ideas</h1>
         <h2 class="textsai"></h2>
         <div class="select_menu">
             <form>
-                Select game:
+                Select topic:
                 <select id="topic">
               <option value="French Dungeon 2">French Dungeon 2</option>
               <option value="The Magecal">The Magecal</option>
+              <option value="The Tools">The Tools</option>
               <option value="New Ideas">Ideas for new games</option>
               <option value="Website">Ideas for website</option>
             </select>
@@ -318,16 +328,21 @@
 
     <script type="text/javascript">
         function sendfunction() {
-            switch (document.getElementById("topic").value) {
-                case "French Dungeon 2":
-                    code = "A";
-                case "The Magecal":
-                    code = "B";
-                case "New Ideas":
-                    code = "C"
-                case "Website":
-                    code = "D";
+            alert("Sending... \nClick ok to continue")
+            let code = "Z";
+            const topic_selection = document.getElementById("topic").value;
+            if (topic_selection == "French Dungeon 2") {
+                code = "A"
+            } else if (topic_selection == "The Magecal") {
+                code = "B"
+            } else if (topic_selection == "The Tools") {
+                code = "C"
+            } else if (topic_selection == "New Ideas") {
+                code = "D"
+            } else if (topic_selection == "Website") {
+                code = "E"
             }
+
             var num1 = Math.floor(Math.random() * 10001);
             var num2 = Math.floor(Math.random() * 1000001);
             var nameid = document.getElementById("name").value;
@@ -342,7 +357,8 @@
                 email: emailid,
                 message: messageid,
                 refcode: refcode,
-                lang: lang
+                lang: lang,
+                ipa: ipaddress
                     //name: $('input[name=name]').val(),
                     //email: $('input[name=email]').val(),
                     //message: $('textarea[name=message]').val(),
