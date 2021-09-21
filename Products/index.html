@@ -139,6 +139,21 @@
             }
         }
         
+        p.ci {
+            font-size: small;
+            text-align: center;
+        }
+        
+        hr.ll {
+            display: block;
+            margin-top: 2em;
+            margin-bottom: 0.01em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 1px;
+        }
+        
         .devimg1 {
             float: right;
         }
@@ -172,28 +187,32 @@
     </div>
 
     <div class="w3-sidebar w3-bar-block w3-black w3-card" style="width:130px">
-        <h5 class="w3-bar-item">Games</h5>
-        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Game#1')">Game #1</button>
-        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Game#2')">Game #2</button>
-        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Game#3')">Game #3</button>
-        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Game#4')">Game #4</button>
+        <h5 class="w3-bar-item">Products</h5>
+        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'french_dungeon_2')">French Dungeon 2</button>
+        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'the_magecal')">The Magecal</button>
+        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'the_tools')">The Tools</button>
     </div>
 
     <div style="margin-left:130px">
-        <div id="Game#1" class="w3-container game w3-animate-opacity" style="display:none">
-            <h2>Game #1</h2>
-            <p>Game #1 is roguelike game</p>
-            <p>It is developed in 2018</p>
+        <div id="french_dungeon_2" class="w3-container game w3-animate-opacity" style="display:none">
+            <h2>French Dungeon 2: The Return of Croissant</h2>
+            <span class="french_dungeon_2_img">
+                <img src="http://tinyurl.com/qzxz95c" />
+                </span>
+            <p>"French Dungeon 2: The Return of Croissant" is the text based game.</p>
+            <p>This was started developing in 29th June 2020 and released in 21st November 2020</p>
+            <p>Jake, Liam and Tom participated in development</p>
         </div>
-        <div id="Game#2" class="w3-container game w3-animate-opacity" style="display:none">
-            <h2>Game #2</h2>
+        <div id="the_magecal" class="w3-container game w3-animate-opacity" style="display:none">
+            <h2>The Magecal</h2>
             <p>Game #2 is a rpg game</p>
             <p>It is developed in 2020</p>
         </div>
-        <div id="Game#3" class="w3-container game w3-animate-opacity" style="display:none">
-            <h2>Game #3</h2>
-            <p>Game #3 is a fps game</p>
-            <p>It is developed in 2020</p>
+        <div id="the_tools" class="w3-container game w3-animate-opacity" style="display:none">
+            <h2>The Tools</h2>
+            <p>"The Tools" is the website for multiple purposes</p>
+            <p>This can be used for entertainment purpose or practical purpose</p>
+            <p>It developed in 2019 by Jake</p>
         </div>
         <div id="Game#4" class="w3-container game w3-animate-opacity" style="display:none">
             <h2>Game #4</h2>
@@ -201,6 +220,8 @@
             <p>It is developed in 2021</p>
         </div>
     </div>
+    <hr class="ll">
+    <p class="ci">Phone Number: 0211355045 | Company Address: 105 Windsor Road, Bellvue, 3110 | Made by Immanuel</p>
 
     <!-- This plays the music and loops it when it is finished -->
     <audio autoplay=" " loop=" ">
