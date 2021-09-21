@@ -281,11 +281,12 @@
             <form>
                 Select topic:
                 <select id="topic">
-              <option value="French Dungeon 2">French Dungeon 2</option>
-              <option value="The Magecal">The Magecal</option>
-              <option value="The Tools">The Tools</option>
-              <option value="New Ideas">Ideas for new games</option>
-              <option value="Website">Ideas for website</option>
+              <option value="french_dungeon_2">French Dungeon 2</option>
+              <option value="the_magecal">The Magecal</option>
+              <option value="the_tools">The Tools</option>
+              <option value="new_game_idea">Ideas for new games</option>
+              <option value="new_website_idea">Ideas for website</option>
+              <option value="other">Other</option>
             </select>
             </form>
         </div>
@@ -331,16 +332,20 @@
             alert("Sending... \nClick ok to continue")
             let code = "Z";
             const topic_selection = document.getElementById("topic").value;
-            if (topic_selection == "French Dungeon 2") {
+            if (topic_selection == "french_dungeon_2") {
                 code = "A"
-            } else if (topic_selection == "The Magecal") {
+            } else if (topic_selection == "the_magecal") {
                 code = "B"
-            } else if (topic_selection == "The Tools") {
+            } else if (topic_selection == "the_tools") {
                 code = "C"
-            } else if (topic_selection == "New Ideas") {
+            } else if (topic_selection == "new_game_idea") {
                 code = "D"
-            } else if (topic_selection == "Website") {
+            } else if (topic_selection == "new_website_idea") {
                 code = "E"
+            } else if (topic_selection == "other") {
+                code = "F"
+            } else {
+                code = "X"
             }
 
             var num1 = Math.floor(Math.random() * 10001);
