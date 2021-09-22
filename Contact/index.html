@@ -346,15 +346,15 @@
             let code = "Z";
             const topic_selection = document.getElementById("topic").value;
             if (topic_selection == "bug_report") {
-                code = "G"
-            } else if (topic_selection == "account_issue") {
                 code = "H"
-            } else if (topic_selection == "game_inquiry") {
+            } else if (topic_selection == "account_issue") {
                 code = "I"
-            } else if (topic_selection == "website_inquiry") {
+            } else if (topic_selection == "game_inquiry") {
                 code = "J"
-            } else if (topic_selection == "other") {
+            } else if (topic_selection == "website_inquiry") {
                 code = "K"
+            } else if (topic_selection == "other") {
+                code = "L"
             } else {
                 code = "X"
             }
