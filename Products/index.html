@@ -5,6 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset=UTF-8>
 
     <style>
+        /* Center the loader */
+        
+        #loader {
+            text-align: center;
+        }
+        /* Add animation to "page content" */
+        
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+        
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+            to {
+                bottom: 0px;
+                opacity: 1
+            }
+        }
+        
+        @keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+        
+        .loadtext {
+            text-align: center;
+        }
+        
+        .outer {
+            display: table;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        .inner {
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+            /* Whatever width you want */
+        }
+        
         h1 {
             font-family: "Lucida Console", "Courier New", monospace;
         }
@@ -34,7 +96,7 @@
         }
         
         body {
-            background-color: rgb(255, 255, 255)
+            background-color: rgb(211, 217, 223)
         }
         /* Add a black background color to the top navigation */
         
@@ -166,163 +228,188 @@
 
 </head>
 
-<body>
+<body onload="loading_page()" style="margin:0;">
 
-    <!-- Top navigation -->
-    <div class="topnav " id="myTopnav ">
+    <div id="loader">
+        <div class="outer">
+            <div class="middle">
+                <div class="inner">
+                    <h1 class="loadtext">Loading...</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Left-aligned links (default) -->
-        <!--<a href="#o3 ">Home</a>-->
-        <a class="topnav-img " href="https://dash-dash-dash.github.io/NoxTech/ ">
-            <img alt="NoxTech " src="https://user-images.githubusercontent.com/65686816/134430299-721816ce-92f8-470e-a3bc-047df1fff3f3.png" class="img-fluid ">
-        </a>
-        <div class="topnav-text "><a href="https://dash-dash-dash.github.io/NoxTech/Products/">Products</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/About/">About us</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/S&I/">Suggestion & Ideas</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/Support/">Support</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact Us</a>
-            <a href="javascript:void(0); " class="icon " onclick="myFunction() ">
-                <i class="fa fa-bars "></i>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+
+        <!-- Top navigation -->
+        <div class="topnav " id="myTopnav ">
+
+            <!-- Left-aligned links (default) -->
+            <!--<a href="#o3 ">Home</a>-->
+            <a class="topnav-img " href="https://dash-dash-dash.github.io/NoxTech/ ">
+                <img alt="NoxTech " src="https://user-images.githubusercontent.com/65686816/134430299-721816ce-92f8-470e-a3bc-047df1fff3f3.png" class="img-fluid ">
             </a>
+            <div class="topnav-text "><a href="https://dash-dash-dash.github.io/NoxTech/Products/">Products</a>
+                <a href="https://dash-dash-dash.github.io/NoxTech/About/">About us</a>
+                <a href="https://dash-dash-dash.github.io/NoxTech/S&I/">Suggestion & Ideas</a>
+                <a href="https://dash-dash-dash.github.io/NoxTech/Support/">Support</a>
+                <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact Us</a>
+                <a href="javascript:void(0); " class="icon " onclick="myFunction() ">
+                    <i class="fa fa-bars "></i>
+                </a>
+            </div>
         </div>
-    </div>
 
-    <div class="w3-sidebar w3-bar-block w3-black w3-card" style="width:130px">
-        <h5 class="w3-bar-item">Products</h5>
-        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'french_dungeon')">French Dungeon 1</button>
-        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'french_dungeon_2')">French Dungeon 2</button>
-        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'the_magecal')">The Magecal</button>
-        <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'the_tools')">The Tools</button>
-    </div>
+        <div class="w3-sidebar w3-bar-block w3-black w3-card" style="width:130px">
+            <h5 class="w3-bar-item">Products</h5>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'french_dungeon')">French Dungeon 1</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'french_dungeon_2')">French Dungeon 2</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'the_magecal')">The Magecal</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'the_tools')">The Tools</button>
+        </div>
 
-    <div style="margin-left:130px">
-        <div id="french_dungeon_2" class="w3-container game w3-animate-opacity" style="display:none">
-            <h2>French Dungeon 2: The Return of Croissant</h2>
-            <span class="game_img">
+        <div style="margin-left:130px">
+            <div id="french_dungeon_2" class="w3-container game w3-animate-opacity" style="display:none">
+                <h2>French Dungeon 2: The Return of Croissant</h2>
+                <span class="game_img">
                 <img src="http://tinyurl.com/qzxz95c" />
                 </span>
-            <br>
-            <h3>Overview:</h3>
-            <p>"French Dungeon 2: The Return of Croissant" is a text based game.</p>
-            <p>Your goal is to save your people in dungeon.</p>
-            <p>This is the second French Dungeon of the French Dungeon series.</p>
-            <br>
-            <h3>Storyline:</h3>
-            <P>You become child of main character in French Dungeon Origin.</P>
-            <p>You can be either Croissant (Male) or Ficelle (Female)</p>
-            <p>One day, they finds out their neighbor and their father are missing.</p>
-            <p>French T.Oasty the mayor of Pont-Évêque tells them that somebody kidnapped them into the dungeon.</p>
-            <p>They go into the dungeon to save them.</p>
-            <br>
-            <h3>Detail:</h3>
-            <p>This was started developing in 29th June 2020 and released in 21st November 2020.</p>
-            <p>This was planned to be made after Tom Bradley finishes the first French Dungeon.</p>
-            <p>Immanuel, Liam Goldingham and Tom Bradley participated in development.</p>
-            <br>
-            <h3>System Requirements:</h3>
-            <p>OS: Window 10 or above</p>
-            <p>CPU: Celeron E3500 or above</p>
-            <p>RAM: 250MB or above</p>
-            <p>Storage: 1MB or bigger</p>
-            <p>Input: Keyboard</p>
-            <br>
-            <br>
-            <h3>Download Link: <span><a href="https://github.com/Immanuelab/French_Dungeon_2-The_Return_of_Croissant-Final/blob/master/.github/ZIp%20File/FrenchDungeon2.zip?raw=true" style="font-size: 16px;">French Dungeon 2</a></span></h3>
-        </div>
-        <div id="the_magecal" class="w3-container game w3-animate-opacity" style="display:none">
-            <h2>The Magecal</h2>
-            <span class="game_img">
+                <br>
+                <h3>Overview:</h3>
+                <p>"French Dungeon 2: The Return of Croissant" is a text based game.</p>
+                <p>Your goal is to save your people in dungeon.</p>
+                <p>This is the second French Dungeon of the French Dungeon series.</p>
+                <br>
+                <h3>Storyline:</h3>
+                <P>You become child of main character in French Dungeon Origin.</P>
+                <p>You can be either Croissant (Male) or Ficelle (Female)</p>
+                <p>One day, they finds out their neighbor and their father are missing.</p>
+                <p>French T.Oasty the mayor of Pont-Évêque tells them that somebody kidnapped them into the dungeon.</p>
+                <p>They go into the dungeon to save them.</p>
+                <br>
+                <h3>Detail:</h3>
+                <p>This was started developing in 29th June 2020 and released in 21st November 2020.</p>
+                <p>This was planned to be made after Tom Bradley finishes the first French Dungeon.</p>
+                <p>Immanuel, Liam Goldingham and Tom Bradley participated in development.</p>
+                <br>
+                <h3>System Requirements:</h3>
+                <p>OS: Window 10 or above</p>
+                <p>CPU: Celeron E3500 or above</p>
+                <p>RAM: 250MB or above</p>
+                <p>Storage: 1MB or bigger</p>
+                <p>Input: Keyboard</p>
+                <br>
+                <br>
+                <h3>Download Link: <span><a href="https://github.com/Immanuelab/French_Dungeon_2-The_Return_of_Croissant-Final/blob/master/.github/ZIp%20File/FrenchDungeon2.zip?raw=true" style="font-size: 16px;">French Dungeon 2</a></span></h3>
+            </div>
+            <div id="the_magecal" class="w3-container game w3-animate-opacity" style="display:none">
+                <h2>The Magecal</h2>
+                <span class="game_img">
                 <img src="http://tinyurl.com/qzxz95c" />
                 </span>
-            <br>
-            <h3>Overview:</h3>
-            <p>"The Magecal" is platformer game.</p>
-            <p>The goal of this game is survive from the vicious dungeon using various spells.</p>
-            <br>
-            <!--
+                <br>
+                <h3>Overview:</h3>
+                <p>"The Magecal" is platformer game.</p>
+                <p>The goal of this game is survive from the vicious dungeon using various spells.</p>
+                <br>
+                <!--
             <h3>Storyline:</h3>
             <p>Not decided yet.</p>
             <br>
             -->
-            <h3>Detail:</h3>
-            <p>It have been under development since 2021 June by Immanuel.</p>
-            <p>Originally it was planned as a sandbox roguelike game but changed genre as development progress.</p>
-            <p>It is still under development.</p>
-            <br>
-            <!--
+                <h3>Detail:</h3>
+                <p>It have been under development since 2021 June by Immanuel.</p>
+                <p>Originally it was planned as a sandbox roguelike game but changed genre as development progress.</p>
+                <p>It is still under development.</p>
+                <br>
+                <!--
             <h3>System Requirements:</h3>
             <p>Do not know yet.</p>
             <br>
             -->
-            <br>
-            <h3>Download Link: <span><a href=# style="font-size: 16px;">The Magecal (Demo)</a></span></h3>
-        </div>
-        <div id="the_tools" class="w3-container game w3-animate-opacity" style="display:none">
-            <h2>The Tools</h2>
-            <span class="game_img">
+                <br>
+                <h3>Download Link: <span><a href=# style="font-size: 16px;">The Magecal (Demo)</a></span></h3>
+            </div>
+            <div id="the_tools" class="w3-container game w3-animate-opacity" style="display:none">
+                <h2>The Tools</h2>
+                <span class="game_img">
                 <img src="http://tinyurl.com/qzxz95c" />
                 </span>
-            <br>
-            <h3>Overview:</h3>
-            <p>"The Tools" is the website for multiple purposes.</p>
-            <p>This can be used for entertainment purpose or practical purpose.</p>
-            <br>
-            <h3>Detail:</h3>
-            <p>It was developed in 2019 by Immanuel.</p>
-            <p>Added new features every week in 2019 until it became unaccessible.</p>
-            <p>It became accessible again in 2021 February using Github Pages. (Web Hosting Service)</p>
-            <br>
-            <h3>System Requirements:</h3>
-            <p>OS: Windows XP or later, Mac OS 10.12 Sierra or later</p>
-            <p>Browser: Google Chrome, Mozila Firefox, Microsoft Edge, Opera</p>
-            <p>Input: Keyboard</p>
-            <br>
-            <h3>Website Link: <span><a href="https://dash-dash-dash.github.io/The_Tools/" style="font-size: 16px;">The Tools</a></span></h3>
-        </div>
-        <div id="french_dungeon" class="w3-container game w3-animate-opacity" style="display:none">
-            <h2>French Dungeon Origin</h2>
-            <span class="game_img">
+                <br>
+                <h3>Overview:</h3>
+                <p>"The Tools" is the website for multiple purposes.</p>
+                <p>This can be used for entertainment purpose or practical purpose.</p>
+                <br>
+                <h3>Detail:</h3>
+                <p>It was developed in 2019 by Immanuel.</p>
+                <p>Added new features every week in 2019 until it became unaccessible.</p>
+                <p>It became accessible again in 2021 February using Github Pages. (Web Hosting Service)</p>
+                <br>
+                <h3>System Requirements:</h3>
+                <p>OS: Windows XP or later, Mac OS 10.12 Sierra or later</p>
+                <p>Browser: Google Chrome, Mozila Firefox, Microsoft Edge, Opera</p>
+                <p>Input: Keyboard</p>
+                <br>
+                <h3>Website Link: <span><a href="https://dash-dash-dash.github.io/The_Tools/" style="font-size: 16px;">The Tools</a></span></h3>
+            </div>
+            <div id="french_dungeon" class="w3-container game w3-animate-opacity" style="display:none">
+                <h2>French Dungeon Origin</h2>
+                <span class="game_img">
                 <img src="http://tinyurl.com/qzxz95c" />
                 </span>
-            <h3>Overview:</h3>
-            <p>"French Dungeon Origin" is the text based RPG dungeon game on web platform.</p>
-            <p>The goal is to escape from the Dungeon and go back to the Town.</p>
-            <p>This was the first game of the French Dungeon series.</p>
-            <br>
-            <h3>Storyline:</h3>
-            <p>One guy settled down in a small town called Ascot.</p>
-            <p>Every townfolks loved his kindness to all.</p>
-            <p>He left his child and that child was nothing like him.</p>
-            <p>He was sent to the dungeon in France by townfolks because of his evil mind.</p>
-            <p>Now he has to survive from this dungeon and you will become him in the game.</p>
-            <br>
-            <h3>Detail:</h3>
-            <p>It was originally planned to be developed by 3 people.</p>
-            <p>Lachlan Torr, Tom Bradley and Immanuel have set the plan up but 2 of them left the group.</p>
-            <p>It is created by Tom Bradley in 2019.</p>
-            <p>It was also unaccessible due to hosting problem but restored the code from Immanuel using Github Page.</p>
-            <p>It went back to online in 2021 August.</p>
-            <br>
-            <h3>System Requirements:</h3>
-            <p>OS: Windows XP or later, Mac OS 10.12 Sierra or later</p>
-            <p>Browser: Google Chrome, Mozila Firefox, Microsoft Edge, Opera</p>
-            <p>Input: Keyboard</p>
-            <br>
-            <br>
-            <h3>Website Link: <span><a href="https://dash-dash-dash.github.io/French_Dungeon_Origin/" style="font-size: 16px;">French Dungeon Origin</a></span></h3>
+                <h3>Overview:</h3>
+                <p>"French Dungeon Origin" is the text based RPG dungeon game on web platform.</p>
+                <p>The goal is to escape from the Dungeon and go back to the Town.</p>
+                <p>This was the first game of the French Dungeon series.</p>
+                <br>
+                <h3>Storyline:</h3>
+                <p>One guy settled down in a small town called Ascot.</p>
+                <p>Every townfolks loved his kindness to all.</p>
+                <p>He left his child and that child was nothing like him.</p>
+                <p>He was sent to the dungeon in France by townfolks because of his evil mind.</p>
+                <p>Now he has to survive from this dungeon and you will become him in the game.</p>
+                <br>
+                <h3>Detail:</h3>
+                <p>It was originally planned to be developed by 3 people.</p>
+                <p>Lachlan Torr, Tom Bradley and Immanuel have set the plan up but 2 of them left the group.</p>
+                <p>It is created by Tom Bradley in 2019.</p>
+                <p>It was also unaccessible due to hosting problem but restored the code from Immanuel using Github Page.</p>
+                <p>It went back to online in 2021 August.</p>
+                <br>
+                <h3>System Requirements:</h3>
+                <p>OS: Windows XP or later, Mac OS 10.12 Sierra or later</p>
+                <p>Browser: Google Chrome, Mozila Firefox, Microsoft Edge, Opera</p>
+                <p>Input: Keyboard</p>
+                <br>
+                <br>
+                <h3>Website Link: <span><a href="https://dash-dash-dash.github.io/French_Dungeon_Origin/" style="font-size: 16px;">French Dungeon Origin</a></span></h3>
+            </div>
         </div>
-    </div>
-    <hr class="ll">
-    <p class="ci">Phone Number: 0211355045 | Company Address: 105 Windsor Road, Bellvue, 3110 | Made by Immanuel</p>
+        <hr class="ll">
+        <p class="ci">Phone Number: 0211355045 | Company Address: 105 Windsor Road, Bellvue, 3110 | Made by Immanuel</p>
 
-    <!-- This plays the music and loops it when it is finished -->
-    <audio autoplay=" " loop=" ">
+        <!-- This plays the music and loops it when it is finished -->
+        <audio autoplay=" " loop=" ">
         <!-- This is the music file that is used -->
         <source src="https://drive.google.com/uc?export=download&amp;id=1qy82nL26H0bNaGnjk4VJ_zKmUtWqiBhA " type="audio/wav ">
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
+    </div>
     <script>
+        var set_time;
+
+        function loading_page() {
+            set_time = setTimeout(showPage, 2000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+
         function openLink(evt, animName) {
             var i, x, tablinks;
             x = document.getElementsByClassName("game");

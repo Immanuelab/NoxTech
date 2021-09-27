@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Center the loader */
+        
+        #loader {
+            text-align: center;
+        }
+        /* Add animation to "page content" */
+        
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+        
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+            to {
+                bottom: 0px;
+                opacity: 1
+            }
+        }
+        
+        @keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+        
+        .loadtext {
+            text-align: center;
+        }
+        
+        .outer {
+            display: table;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        .inner {
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+            /* Whatever width you want */
+        }
+    </style>
+</head>
+
+<body onload="loading_page()" style="margin:0;">
+
+    <div id="loader">
+        <div class="outer">
+            <div class="middle">
+                <div class="inner">
+                    <h1 class="loadtext">Loading...</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h2>Tada!</h2>
+        <p>Some text in my newly loaded page..</p>
+    </div>
+
+    <script>
+        var set_time;
+
+        function loading_page() {
+            set_time = setTimeout(showPage, 2000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
