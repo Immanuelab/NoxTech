@@ -5,18 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset=UTF-8>
 
     <style>
-        h1 {
-            font-family: "Lucida Console", "Courier New", monospace;
+        /* Center the loader */
+        
+        #loader {
+            text-align: center;
+        }
+        /* Add animation to "page content" */
+        
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
         }
         
-        hr.fl {
-            display: block;
-            margin-top: 5em;
-            margin-bottom: 0.5em;
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+            to {
+                bottom: 0px;
+                opacity: 1
+            }
+        }
+        
+        @keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+        
+        .loadtext {
+            text-align: center;
+        }
+        
+        .outer {
+            display: table;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        .inner {
             margin-left: auto;
             margin-right: auto;
-            border-style: inset;
-            border-width: 1px;
+            width: 400px;
+            /* Whatever width you want */
+        }
+        
+        h1 {
+            font-family: "Lucida Console", "Courier New", monospace;
         }
         
         hr.ll {
@@ -29,23 +81,18 @@
             border-width: 1px;
         }
         
-        .textho {
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-        
         p.ci {
             font-size: small;
             text-align: center;
         }
         
         body {
-            background-color: rgb(255, 255, 255)
+            background-color: rgb(211, 217, 223)
         }
         /* Add a black background color to the top navigation */
         
         .topnav {
-            background-color: rgb(120, 120, 120);
+            background-color: rgb(152, 152, 152);
             overflow: hidden;
             top: 0;
             width: 100%;
@@ -105,8 +152,8 @@
         }
         
         .topnav-text a:hover {
-            background-color: #0c4c7d;
-            color: black;
+            background-color: rgb(0, 68, 137);
+            color: rgb(211, 217, 223);
         }
         /* Add a color to the active/current link */
         
@@ -144,10 +191,6 @@
                 }
             }
         }
-        
-        .devimg1 {
-            float: right;
-        }
     </style>
     <title>NoxTech</title>
 
@@ -156,40 +199,66 @@
     <link rel="icon" href="https://user-images.githubusercontent.com/65686816/134430730-af9720e2-e54e-4de4-b1e4-aedae4de7d96.png">
 </head>
 
-<body>
+<body onload="loading_page()" style="margin:0;">
 
-    <!-- Top navigation -->
-    <div class="topnav " id="myTopnav ">
-
-        <!-- Left-aligned links (default) -->
-        <!--<a href="#o3 ">Home</a>-->
-        <a class="topnav-img " href="https://dash-dash-dash.github.io/NoxTech/ ">
-            <img alt="NoxTech " src="https://user-images.githubusercontent.com/65686816/134430299-721816ce-92f8-470e-a3bc-047df1fff3f3.png" class="img-fluid ">
-        </a>
-        <div class="topnav-text "><a href="https://dash-dash-dash.github.io/NoxTech/Products/">Products</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/About/">About us</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/S&I/">Suggestion & Ideas</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/Support/">Support</a>
-            <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact Us</a>
-            <a href="javascript:void(0); " class="icon " onclick="myFunction() ">
-                <i class="fa fa-bars "></i>
-            </a>
+    <div id="loader">
+        <div class="outer">
+            <div class="middle">
+                <div class="inner">
+                    <h1 class="loadtext">Loading...</h1>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- It puts horizontal line in between. ll means last line -->
-    <hr class="ll">
 
-    <!-- This part is for contact info of the company. ci means contact info-->
-    <p class="ci">Phone Number: 0211355045 | Company Address: 105 Windsor Road, Bellvue, 3110 | Made by Immanuel</p>
-    <!-- This plays the music and loops it when it is finished -->
-    <audio autoplay=" " loop=" ">
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+
+        <!-- Top navigation -->
+        <div class="topnav " id="myTopnav ">
+
+            <!-- Left-aligned links (default) -->
+            <!--<a href="#o3 ">Home</a>-->
+            <a class="topnav-img " href="https://dash-dash-dash.github.io/NoxTech/ ">
+                <img alt="NoxTech " src="https://user-images.githubusercontent.com/65686816/134430299-721816ce-92f8-470e-a3bc-047df1fff3f3.png" class="img-fluid ">
+            </a>
+            <div class="topnav-text "><a href="https://dash-dash-dash.github.io/NoxTech/Products/">Products</a>
+                <a href="https://dash-dash-dash.github.io/NoxTech/About/">About us</a>
+                <a href="https://dash-dash-dash.github.io/NoxTech/S&I/">Suggestion & Ideas</a>
+                <a href="https://dash-dash-dash.github.io/NoxTech/Support/">Support</a>
+                <a href="https://dash-dash-dash.github.io/NoxTech/Contact/">Contact Us</a>
+                <a href="javascript:void(0); " class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars "></i>
+                </a>
+            </div>
+        </div>
+
+        <h1>Error Codes</h1>
+        <p>First Line</p>
+        <!-- It puts horizontal line in between. ll means last line -->
+        <hr class="ll">
+
+        <!-- This part is for contact info of the company. ci means contact info-->
+        <p class="ci">Phone Number: 0211355045 | Company Address: 105 Windsor Road, Bellvue, 3110 | Made by Immanuel</p>
+        <!-- This plays the music and loops it when it is finished -->
+        <audio autoplay=" " loop=" ">
         <!-- This is the music file that is used -->
         <source src="https://drive.google.com/uc?export=download&amp;id=1qy82nL26H0bNaGnjk4VJ_zKmUtWqiBhA " type="audio/wav ">
         <!-- This text show up when the browser does not support music play element -->
         This browser does not support music play.
     </audio>
+    </div>
     <script>
+        var set_time;
+
+        function loading_page() {
+            set_time = setTimeout(showPage, 500);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
         window.onscroll = function() {
             mymyFunction()
         };
