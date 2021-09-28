@@ -101,7 +101,7 @@
         /* Add a black background color to the top navigation */
         
         .topnav {
-            background-color: rgb(120, 120, 120);
+            background-color: rgb(152, 152, 152);
             overflow: hidden;
             top: 0;
             width: 100%;
@@ -161,8 +161,8 @@
         }
         
         .topnav-text a:hover {
-            background-color: #0c4c7d;
-            color: black;
+            background-color: rgb(0, 68, 137);
+            color: rgb(211, 217, 223);
         }
         /* Add a color to the active/current link */
         
@@ -262,7 +262,7 @@
             </div>
         </div>
 
-        <div class="w3-sidebar w3-bar-block w3-black w3-card" style="width:130px">
+        <div class="w3-sidebar w3-bar-block w3-indigo w3-card" style="width:130px">
             <h5 class="w3-bar-item">Products</h5>
             <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'french_dungeon')">French Dungeon 1</button>
             <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'french_dungeon_2')">French Dungeon 2</button>
@@ -402,7 +402,7 @@
         var set_time;
 
         function loading_page() {
-            set_time = setTimeout(showPage, 2000);
+            set_time = setTimeout(showPage, 500);
         }
 
         function showPage() {
@@ -418,10 +418,10 @@
             }
             tablinks = document.getElementsByClassName("tablink");
             for (i = 0; i < x.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+                tablinks[i].className = tablinks[i].className.replace(" w3-light-blue", "");
             }
             document.getElementById(animName).style.display = "block";
-            evt.currentTarget.className += " w3-red";
+            evt.currentTarget.className += " w3-light-blue";
         }
         window.onscroll = function() {
             mymyFunction()
